@@ -1,7 +1,0 @@
-{
-    "classes": [
-        "oracle.ucp.jdbc.PoolDataSource",
-        "oracle.ucp.jdbc.PoolDataSourceImpl",
-        "javax.sql.DataSource"
-    ]
-}
