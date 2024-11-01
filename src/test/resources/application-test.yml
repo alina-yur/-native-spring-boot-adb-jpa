@@ -1,7 +1,4 @@
 spring:
-  application:
-    name: graalvmnativeimagejpa
-
   datasource:
     url: jdbc:oracle:thin:@adb_high?TNS_ADMIN=/<your full path>/wallet/Wallet_ADB
     username: ADMIN
@@ -10,24 +7,22 @@ spring:
     type: oracle.ucp.jdbc.PoolDataSource
     oracleucp:
       connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
-      connection-pool-name: ConnectionPool
+      connection-pool-name: TestConnectionPool
       initial-pool-size: 5
-      min-pool-size: 2
+      min-pool-size: 5
       max-pool-size: 10
 
   jpa:
-    show-sql: false
+    show-sql: true
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     properties:
       hibernate:
-        format_sql: false
-
-  main:
-    banner-mode: console
-
+        format_sql: true
 logging:
   level:
-    root: ERROR
-    org.springframework: INFO
-    com.example.graalvm: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.example.graalvm: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
